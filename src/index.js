@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./resets.css";
 import App from "./App";
 import "./api/configureApiSevice";
 import { MoviesProvider } from "./components/MoviesProvider";
