@@ -1,6 +1,6 @@
 div {
   /* border: 1px solid; */
-  min-height: 50px;
+  /* min-height: 50px; */
 }
 
 .container {
@@ -85,13 +85,18 @@ div {
   margin-left: 10px;
   position: relative;
   opacity: 0.9;
+  min-height: 50px;
+}
+
+.movie-card__rating {
+  font-size: 32px;
 }
 
 .movie-card__rating > div {
   border-radius: 50%;
   background: black;
   color: aliceblue;
-  font-size: 1.4em;
+  /* font-size: 1.4em; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,6 +104,8 @@ div {
   padding: 4px 12px;
   position: absolute;
   top: -50%;
+  min-height: 50px;
+  z-index: 400;
 }
 
 .movie-card__btn {

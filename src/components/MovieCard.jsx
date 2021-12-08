@@ -1,3 +1,5 @@
+import { ProgressBar } from "./ProgressBar";
+
 export const MovieCard = ({ data = {} }) => {
   const rating = data["vote_average"] * 10;
   const date = `${new Date(Date.parse(data["release_date"])).toDateString()}`.split(" ");
@@ -19,10 +21,10 @@ export const MovieCard = ({ data = {} }) => {
       <div className="movie-card__rating">
         <div
           style={
-            rating < 50 ? { color: "red" } : rating < 75 ? { color: "orange" } : { color: "green" }
+            rating < 50 ? { color: "red" } : rating < 75 ? { color: "green" } : { color: "violet" }
           }
         >
-          {rating}
+          <ProgressBar value={rating} />
         </div>
       </div>
 
