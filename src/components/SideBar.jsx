@@ -4,6 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 export const SideBar = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +20,7 @@ export const SideBar = () => {
       <div className="side-bar__sort-wrapper">
         <div className="side-bar__title" onClick={() => setOpen(!open)}>
           <span>Sorting</span>
-          <span>{open ? <>&#9660;</> : <>&#10148;</>}</span>
+          <span>{open ? <ArrowRightIcon /> : <ArrowDropDownIcon />}</span>
         </div>
 
         {open && (
