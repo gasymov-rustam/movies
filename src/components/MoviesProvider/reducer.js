@@ -6,6 +6,6 @@ export const reducer = createHookReducer({
     return { ...state, isFetching: true };
   },
   [types.FETCH_MOVIES_SUCCESS]: (state, payload) => {
-    return { ...state, movies: payload, isFetching: false };
+    return { ...state, movies: payload?.data, isFetching: false };
   },
 });
