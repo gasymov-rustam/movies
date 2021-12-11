@@ -1,4 +1,5 @@
 import { ProgressBar } from "./ProgressBar";
+import Image from "../assets/image/Image.webp";
 
 export const MovieCard = ({ data = {} }) => {
   const rating = data["vote_average"] * 10;
@@ -7,9 +8,15 @@ export const MovieCard = ({ data = {} }) => {
 
   return (
     <div className="movie-card">
+      {/* {console.log(`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${data?.poster_path}`)} */}
       <button className="movie-card__btn">...</button>
       <img
-        src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${data?.backdrop_path}`}
+        src={
+          data?.poster_path
+            ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${data?.poster_path}`
+            : Image
+        }
+        // src={Image}
         className="movie-card__img"
         loading="lazy"
         width="1"

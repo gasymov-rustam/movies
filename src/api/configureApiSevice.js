@@ -1,4 +1,4 @@
 import { tmdbApi } from "./tmdbApi";
-import { requestInterceptor } from "./requestInterceptor";
+import { responseInterceptor } from "./responseInterceptor";
 
-tmdbApi.interceptors.response.use(requestInterceptor);
+tmdbApi.interceptors.response.use(responseInterceptor);
