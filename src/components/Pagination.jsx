@@ -1,24 +1,31 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { MoviesContext } from "./MoviesProvider";
-import Pagination from "@mui/material/Pagination";
+import MuiPagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export const Paginate = ({ page, setPage }) => {
+export const Pagination = ({ page, onChange }) => {
   const { isFetching, totalPages } = useContext(MoviesContext);
+
+  const handleChange = useCallback(
+    (_, num) => {
+      onChange(num);
+    },
+    [onChange]
+  );
 
   return isFetching && totalPages === 0 ? (
     <></>
   ) : (
     <div className="pagination-wrapper">
       <Stack spacing={2}>
-        <Pagination
+        <MuiPagination
           count={totalPages}
           color="secondary"
           variant="outlined"
           shape="rounded"
           size="large"
           page={page}
-          onChange={(_, num) => setPage(num)}
+          onChange={handleChange}
         />
       </Stack>
     </div>
@@ -31,11 +38,11 @@ export const Paginate = ({ page, setPage }) => {
 // };
 
 // useEffect(() => {
-//   setPage(1);
+//   onChange(1);
 // }, [totalPages]);
 
 // const handleChange = (num) => {
-//   setPage(num);
+//   onChange(num);
 //   fetchMovies({ page: page + 1 });
 // };
 

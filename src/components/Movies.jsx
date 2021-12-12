@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
 import { MoviesContext } from "./MoviesProvider";
-import { Paginate } from "./Paginate";
+import { Pagination } from "./Pagination";
 import { SideBar } from "./SideBar";
 import Title from "./Title";
 
@@ -32,7 +32,7 @@ export const Movies = ({ url, title, sort }) => {
         {movies?.results?.map((movie) => (
           <MovieCard key={movie.id} data={movie} />
         ))}
-        <Paginate page={page} setPage={setPage} />
+        <Pagination page={page} onChange={setPage} />
       </div>
     </div>
   );

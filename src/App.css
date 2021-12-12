@@ -30,6 +30,13 @@
   background: aqua;
   box-shadow: 0 0 15px 1px black;
   padding: 20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.header-tab:hover + .header__list-movies,
+.header__list-movies:hover {
+  opacity: 1;
 }
 
 .header__list-movies > li {

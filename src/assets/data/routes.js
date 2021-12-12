@@ -4,7 +4,7 @@ import { SortPage } from "../../pages/SortPage";
 import { TopRated } from "../../pages/TopRated";
 import { Upcoming } from "../../pages/Upcoming";
 
-export const routesMap = [
+export const routes = [
   {
     exact: true,
     component: Popular,

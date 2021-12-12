@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import "./App.css";
-import { routesMap } from "./assets/data/routesMap";
+import { routes } from "./assets/data/routes";
 import { Header } from "./components/Header";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
       <Switch>
-        {routesMap.map((route) => (
+        {routes.map((route) => (
           <Route
             key={route.path}
             exact={route.exact}
