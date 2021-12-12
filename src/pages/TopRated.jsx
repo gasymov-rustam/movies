@@ -1,9 +1,5 @@
 import { Movies } from "../components/Movies";
 
-export const TopRated = () => {
-  return (
-    <>
-      <Movies url="/movie/top_rated" title="Top rated movies" />
-    </>
-  );
+export const TopRated = ({ url, title }) => {
+  return <Movies url={url} title={title} />;
 };

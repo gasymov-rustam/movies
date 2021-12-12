@@ -3,29 +3,19 @@ import Box from "@mui/material/Box";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { MoviesContext } from "./MoviesProvider";
-
-const sortingMap = {
-  titleToEnd: "original_title.asc",
-  titleToStart: "original_title.desc",
-  ratingFromZero: "vote_count.asc",
-  ratingToZero: "vote_count.desc",
-};
-
-const sortingOptions = [
-  { value: sortingMap.titleToEnd, label: "By Name A-Z" },
-  { value: sortingMap.titleToStart, label: "By Name Z-A" },
-  { value: sortingMap.ratingFromZero, label: "By Rating from lowest" },
-  { value: sortingMap.ratingToZero, label: "By Rating from highest" },
-];
+import { sortingOptions } from "../assets/data/sortOptions";
+import { useHistory } from "react-router-dom";
 
 export const SideBar = () => {
-  const { isFetching, fetchSortMovies } = useContext(MoviesContext);
+  const { isFetching } = useContext(MoviesContext);
   const [open, setOpen] = useState(false);
   const [sortType, setSortType] = useState("original_title.asc");
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchSortMovies({ sort_by: sortType });
+    setOpen(false);
+    history.push("/sort", { sort_by: sortType });
   };
 
   return isFetching ? (
@@ -60,8 +50,15 @@ export const SideBar = () => {
                   Search
                 </button>
               </form>
+            </Box>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
-              {/* <FormControl fullWidth>
+/* <FormControl fullWidth>
                 <InputLabel>Sorting By</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -85,11 +82,4 @@ export const SideBar = () => {
                   <MenuItem value={20}>Twenty</MenuItem>
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
-              </FormControl> */}
-            </Box>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+              </FormControl> */

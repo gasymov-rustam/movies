@@ -5,13 +5,19 @@ import { Paginate } from "./Paginate";
 import { SideBar } from "./SideBar";
 import Title from "./Title";
 
-export const Movies = ({ url, title }) => {
-  const { isFetching, movies, fetchMovies } = useContext(MoviesContext);
-  const [page, setPage] = useState(null);
+export const Movies = ({ url, title, sort }) => {
+  const { isFetching, movies, fetchMovies, sortParams } = useContext(MoviesContext);
+  const [page, setPage] = useState(1);
+  const fetchingSettings = { page: page, ...sort };
 
   useEffect(() => {
-    fetchMovies(url, { page: page });
-  }, [page]);
+    setPage(1);
+  }, [sort]);
+
+  useEffect(() => {
+    fetchMovies(url, fetchingSettings);
+    console.log(sort);
+  }, [page, sort]);
 
   return isFetching && !movies?.results?.length ? (
     <div className="movie-container">
@@ -28,7 +34,7 @@ export const Movies = ({ url, title }) => {
         {movies?.results?.map((movie) => (
           <MovieCard key={movie.id} data={movie} />
         ))}
-        <Paginate setPage={setPage} />
+        <Paginate page={page} setPage={setPage} />
       </div>
     </div>
   );

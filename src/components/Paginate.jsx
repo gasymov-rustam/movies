@@ -3,7 +3,7 @@ import { MoviesContext } from "./MoviesProvider";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export const Paginate = ({ setPage }) => {
+export const Paginate = ({ page, setPage }) => {
   const { isFetching, totalPages } = useContext(MoviesContext);
 
   return isFetching && totalPages === 0 ? (
@@ -17,7 +17,7 @@ export const Paginate = ({ setPage }) => {
           variant="outlined"
           shape="rounded"
           size="large"
-          // onChange={(_, num) => fetchMovies({ page: num })}
+          page={page}
           onChange={(_, num) => setPage(num)}
         />
       </Stack>

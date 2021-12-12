@@ -1,9 +1,5 @@
 import { Movies } from "../components/Movies";
 
-export const Upcoming = () => {
-  return (
-    <>
-      <Movies url="/movie/upcoming" title="Upcoming movies" />
-    </>
-  );
+export const Upcoming = ({ url, title }) => {
+  return <Movies url={url} title={title} />;
 };

@@ -25,6 +25,10 @@ export const MoviesProvider = ({ children }) => {
     });
   };
 
+  // const setNewSortParams = (data) => {
+  //   dispatch({ type: types.FETCH_MOVIES_SORT_PARAMS, payload: data });
+  // };
+
   const providerValue = {
     ...state,
     fetchMovies,

@@ -11,4 +11,7 @@ export const reducer = createHookReducer({
   [types.FETCH_MOVIES_SUCCESS]: (state, payload) => {
     return { ...state, movies: payload?.data, isFetching: false };
   },
+  [types.FETCH_MOVIES_SORT_PARAMS]: (state, payload) => {
+    return { ...state, sortParams: payload, isFetching: false };
+  },
 });
