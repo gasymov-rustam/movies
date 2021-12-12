@@ -9,7 +9,6 @@ export const reducer = createHookReducer({
     return { ...state, totalPages: payload, isFetching: false };
   },
   [types.FETCH_MOVIES_SUCCESS]: (state, payload) => {
-    console.log(payload.data);
     return { ...state, movies: payload?.data, isFetching: false };
   },
 });

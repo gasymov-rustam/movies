@@ -1,3 +1,3 @@
-export default function Title() {
-  return <h2 className="page-title">Popular movies</h2>;
+export default function Title({ title }) {
+  return <h2 className="page-title">{title}</h2>;
 }

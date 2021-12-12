@@ -1,13 +1,8 @@
 import { useContext, useState } from "react";
 import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { MoviesContext } from "./MoviesProvider";
-import { Button } from "@mui/material";
 
 const sortingMap = {
   titleToEnd: "original_title.asc",
@@ -15,6 +10,7 @@ const sortingMap = {
   ratingFromZero: "vote_count.asc",
   ratingToZero: "vote_count.desc",
 };
+
 const sortingOptions = [
   { value: sortingMap.titleToEnd, label: "By Name A-Z" },
   { value: sortingMap.titleToStart, label: "By Name Z-A" },
