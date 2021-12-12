@@ -6,18 +6,16 @@ import { SideBar } from "./SideBar";
 import Title from "./Title";
 
 export const Movies = ({ url, title, sort }) => {
-  const { isFetching, movies, fetchMovies, sortParams } = useContext(MoviesContext);
+  const { isFetching, movies, fetchMovies } = useContext(MoviesContext);
   const [page, setPage] = useState(1);
-  const fetchingSettings = { page: page, ...sort };
 
   useEffect(() => {
     setPage(1);
   }, [sort]);
 
   useEffect(() => {
-    fetchMovies(url, fetchingSettings);
-    console.log(sort);
-  }, [page, sort]);
+    fetchMovies(url, { page: page, ...sort });
+  }, [page, sort, url]);
 
   return isFetching && !movies?.results?.length ? (
     <div className="movie-container">
